@@ -1,7 +1,7 @@
 """
 Script Name: ALTO XML to Image and Text Processor
-Author: [Your Name]
-Date: [Current Date]
+Author: Maria Levchenko
+Date: 21.08.2024
 
 Description:
     This script processes ALTO XML files created by eScriptorium after running segmentation and recognition models,
