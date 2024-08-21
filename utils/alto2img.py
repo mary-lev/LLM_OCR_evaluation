@@ -110,6 +110,8 @@ def save_image_and_text(cropped_image: np.ndarray, text: str, base_filename: Pat
     Returns:
         Dict[str, Path]: Paths to the saved image and text files.
     """
+    if not text:
+        return {}
     cropped_img_filename = cropped_folder / f'{base_filename.stem}_{index}_cropped_line.jpg'
     txt_filename = text_folder / f'{base_filename.stem}_{index}_text.txt'
 
@@ -145,7 +147,8 @@ def process_file(file: Path, cropped_folder: Path, text_folder: Path, image_ext:
     for index, (polygon, text) in enumerate(text_lines):
         cropped_image = crop_image(image, polygon)
         result = save_image_and_text(cropped_image, text, base_filename, index, cropped_folder, text_folder)
-        results.append(result)
+        if result:
+            results.append(result)
 
     return results
 
